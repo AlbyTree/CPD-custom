@@ -1,0 +1,52 @@
+### CREATE STANDARD ENV. ###
+- Create a conda env. with this command
+
+conda create -n cpd -c conda-forge python=2.7 scipy numpy matplotlib pandas scikit-learn ipython jupyterlab notebook seaborn
+
+- Install pytorch with cuda
+
+conda install pytorch=0.4.0 torchvision cudatoolkit==9.0 -c pytorch
+
+- Download CPD and CPD-R pre-trained models from
+
+CPD [https://drive.google.com/open?id=1ddopz30_sNPOb0MvTCoNwZwL-oQDMGIW]
+CPD-R [https://drive.google.com/open?id=188sybU9VU5rW2BH2Yzhko4w-G5sPp6yG]
+
+into the working directory(top-level directory)
+
+- Download the vgg16 pytorch pre-trained model
+
+python get-vgg16-pytorch-pre-trained-model.py
+
+- Make sure that if some code loads the vgg16 with 'torch.load()'
+it points to './'
+
+### IF YOU WANT TO USE WANDB TO TRACK TRAINING AND TEST ###
+
+- Create conda env. with pip 
+
+conda create -n cpd-wandb ... python=2.7 pip ...
+
+- Install pytorch with cuda
+- Install wandb via pip in safe mode
+
+pip install --upgrade-strategy only-if-needed wandb
+
+- Follow the remaning steps from above
+----------------------------------------------------------------------------------------------------
+|TO TEST THE MODELS|
+
+- Change some paths and dataset values of 'test_CPD.py'
+
+IF YOU USE WANDB
+
+- 
+wandb login <wandb-hash-account>
+
+- Pass the '--wandb=True' argument
+
+python test.py --wandb=True
+
+- Run
+
+python test_CPD.py

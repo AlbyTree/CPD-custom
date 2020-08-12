@@ -1,0 +1,13 @@
+-
+# Train with wandb and save for possible resume
+python train.py --batchsize=2 --model_id=<id> --wandb=True
+
+# Train resume with wandb
+python train.py --batchsize=2 --model_id=<id> --wandb=True --wandb_resume='<name>.h5'
+
+-
+# Train without wandb and save for possible resume only torch
+python train.py --batchsize=2 --model_id=<id>
+
+# Train resume without wandb with only torch
+python train.py --batchsize=2 --model_id=<id> --resume_model='<path/to/model>.pth'
